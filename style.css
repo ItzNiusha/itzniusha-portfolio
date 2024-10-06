@@ -1,0 +1,352 @@
+:root {
+    --c-bg: hsl(0, 0%, 90%);
+    --c-text: hsl(0, 0%, 10%);
+    --pad: max(22px, 4vmin);
+    --pa: max(22px, 4vmin);
+    --fs-text: 12px;
+    --fs-large: 30px;
+    --fs-header: 40px;
+}
+
+
+main,
+canvas {
+    display: block
+}
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--c-bg);
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    font-weight: 300;
+    font-size: var(--fs-text);
+    font-feature-settings: "palt";
+    /* -webkit-text-size-adjust: none; */
+    /* text-size-adjust: none; */
+    /* -webkit-font-smoothing: antialiased; */
+    /* -moz-osx-font-smoothing: grayscale; */
+    overscroll-behavior: none;
+}
+
+
+#Background {
+    position: fixed;
+    left: var(--pa);
+    right: var(--pa);
+    top: var(--pa) * 1;
+    bottom: var(--pa);
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+
+}
+
+#EnterView {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    will-change: opacity;
+    background-color: var(--c-bg);
+    color: var(--c-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .5em;
+    font-size: 30px;
+}
+
+#EnterView ._t1 {
+    font-weight: 400;
+}
+
+#EnterView ._t2 {
+    font-weight: 200;
+}
+
+#Page {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #525354;
+    color: #fff;
+    white-space: nowrap;
+    transition-property: background-color;
+}
+
+/* .page {
+    display: none;
+} */
+
+.page[data-page="home"] {
+    display: block;
+}
+
+.border {
+    position: fixed;
+    z-index: 10;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--pad);
+    bottom: var(--pad);
+
+    pointer-events: none;
+}
+
+.border_line {
+    position: absolute;
+    background-color: #797b7d;
+    opacity: 1;
+}
+
+.border_line-left {
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+}
+
+.border_line-right {
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+}
+
+.border_line-top {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.border_line-bottom {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.theme-toggle {
+    position: fixed;
+    z-index: 10;
+    right: var(--pad);
+    top: var(--pad);
+    display: flex;
+    cursor: pointer;
+    gap: 10px;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+.theme-text {
+    font-size: var(--fs-text);
+    color: white;
+    transition: color 0.3s, transform 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+/* Hover effects for text */
+.theme-text:hover {
+    color: grey;
+    /* Change to a different color on hover */
+    transform: scale(1.1);
+    /* Slightly increase size */
+}
+
+/* Additional styles to differentiate dark and light options */
+.theme-text.dark {
+    font-weight: bold;
+    /* Make dark option bolder */
+}
+
+.theme-text.light {
+    font-weight: lighter;
+    /* Make light option lighter */
+}
+
+/* Site Header Styles */
+.siteHeader {
+    position: fixed;
+    z-index: 10;
+}
+
+.siteHeader_title {
+    margin-left: 200px;
+    margin-top: 100px;
+    font-weight: 200;
+    font-size: 40px;
+    color: white;
+}
+
+.siteHeader_label {
+    margin-left: 200px;
+    font-weight: 200;
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: white;
+    border-bottom: 1px solid white;
+    /* Bottom border */
+    padding-bottom: 5px;
+    /* Adds space between text and border */
+    max-width: calc(100% - 233px);
+    /* Adjust max-width to fit within border */
+    /* display: inline-block; */
+    /* Allows width adjustments */
+}
+
+
+.siteHeader_navigation {
+    margin-left: 180px;
+    margin-top: 350px;
+}
+
+.siteHeader_navigation ul {
+    display: flex;
+    flex-direction: row;
+    /* Ensure items are side by side */
+    padding: 0;
+    list-style: none;
+    font-size: 15px;
+    font-weight: light;
+}
+
+
+
+.siteHeader_navigation li {
+    display: inline;
+    /* Display links inline */
+    margin: 0 30px;
+    /* Spacing between links */
+}
+
+.siteHeader_navigation a {
+    text-decoration: none;
+    /* Remove underline */
+    color: white;
+    /* Dark color for text */
+    position: relative;
+    /* Position for pseudo-element */
+}
+
+.siteHeader_navigation a:hover {
+    text-decoration: line-through;
+    /* Strike-through effect */
+    color: black;
+    /* Optional: Change color of selected item */
+}
+
+.about {
+    position: absolute;
+    right: calc(var(--pad)* 6);
+    bottom: calc(var(--pad)* 9);
+    white-space: nowrap;
+}
+
+.home_aboutme {
+    color: white;
+    font-size: 13.5px;
+    line-height: 1.5
+}
+
+.home_aboutme span {
+    display: inline;
+    /* Ensure all spans are inline */
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.project {
+    position: absolute;
+    right: calc(var(--pad)* 13);
+    bottom: calc(var(--pad)* 9);
+    white-space: nowrap;
+}
+
+
+.project_list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 30px;
+    color: black;
+}
+
+.project_list ul {
+    list-style-type: none;
+    /* Removes the bullet points (dots) */
+    padding: 0;
+    /* Removes default padding */
+}
+
+.project_list li {
+    margin-bottom: 5px;
+    /* Adds space between each list item */
+}
+
+
+.project_list a {
+    text-decoration: none;
+    font-size: 13.5px;
+    color: inherit;
+    /* Inherit the text color from its parent */
+    transition: transform 0.3s ease, text-decoration 0.3s ease;
+    /* Smooth transition */
+    color: white;
+}
+
+.project_list a:hover {
+    text-decoration: line-through;
+    /* Strikethrough on hover */
+    transform: scale(1.1);
+    /* Increase size on hover */
+}
+
+.contact {
+    position: absolute;
+    right: calc(var(--pad)* 15);
+    bottom: calc(var(--pad) * 9);
+    white-space: nowrap;
+}
+
+.contact_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
+}
+
+.contact_info a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* Hide title and label when transitioning */
+.hide-header #headerTitle,
+.hide-header #headerLabel {
+    display: none;
+}
+
+/* Show project content when loaded */
+.page[data-page="project-details"] {
+    display: block;
+}
