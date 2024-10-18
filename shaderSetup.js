@@ -38,7 +38,7 @@ function init() {
                         p.y + fi * sin(fi * p.x + phase)
                     );
                 }
-                float baseColor = 3.0 / 10.0;
+                float baseColor = 2.0 / 12.0;
                 float variation = 0.05 * sin(p.x * p.y); // subtle animation effect
                 gl_FragColor = vec4(baseColor + variation, baseColor + variation, baseColor + variation * 0.98, 1.0);
             }

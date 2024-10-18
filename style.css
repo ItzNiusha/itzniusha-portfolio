@@ -8,6 +8,11 @@
     --fs-header: 40px;
 }
 
+.major-mono-display-regular {
+    font-family: "Major Mono Display", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
 
 main,
 canvas {
@@ -26,9 +31,9 @@ body {
 
 body {
     background-color: var(--c-bg);
-    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-    font-weight: 300;
-    font-size: var(--fs-text);
+    font-family: "Major Mono Display", monospace;
+    font-style: normal;
+    /* font-size: var(--fs-text); */
     font-feature-settings: "palt";
     /* -webkit-text-size-adjust: none; */
     /* text-size-adjust: none; */
@@ -49,6 +54,26 @@ body {
     z-index: -1;
 
 }
+
+.mask {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.mask_top {
+    top: 0;
+}
+
+.mask_bottom {
+    bottom: 0;
+}
+
 
 #EnterView {
     position: fixed;
@@ -83,7 +108,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #525354;
+    background-color: #282929;
     color: #fff;
     white-space: nowrap;
     transition-property: background-color;
@@ -150,7 +175,7 @@ body {
     display: flex;
     cursor: pointer;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-right: 25px;
 }
 
@@ -180,22 +205,29 @@ body {
     /* Make light option lighter */
 }
 
+header {
+    display: block;
+    unicode-bidi: isolate;
+}
+
 /* Site Header Styles */
 .siteHeader {
+    padding-top: 60px;
     position: fixed;
     z-index: 10;
+
 }
 
 .siteHeader_title {
-    margin-left: 200px;
-    margin-top: 100px;
+    margin-left: 203px;
+    margin-top: 200px;
     font-weight: 200;
     font-size: 40px;
     color: white;
 }
 
 .siteHeader_label {
-    margin-left: 200px;
+    margin-left: 203px;
     font-weight: 200;
     font-size: 20px;
     margin-bottom: 30px;
@@ -203,7 +235,7 @@ body {
     color: white;
     border-bottom: 1px solid white;
     /* Bottom border */
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     /* Adds space between text and border */
     max-width: calc(100% - 233px);
     /* Adjust max-width to fit within border */
@@ -213,8 +245,8 @@ body {
 
 
 .siteHeader_navigation {
-    margin-left: 180px;
-    margin-top: 350px;
+    margin-left: 173px;
+    margin-bottom: 30px;
 }
 
 .siteHeader_navigation ul {
@@ -248,20 +280,20 @@ body {
 .siteHeader_navigation a:hover {
     text-decoration: line-through;
     /* Strike-through effect */
-    color: black;
+    color: white;
     /* Optional: Change color of selected item */
 }
 
 .about {
     position: absolute;
-    right: calc(var(--pad)* 6);
-    bottom: calc(var(--pad)* 9);
+    right: calc(var(--pad)* 7);
+    bottom: calc(var(--pad)* 6);
     white-space: nowrap;
 }
 
 .home_aboutme {
     color: white;
-    font-size: 13.5px;
+    font-size: 16px;
     line-height: 1.5
 }
 
@@ -270,13 +302,30 @@ body {
     /* Ensure all spans are inline */
 }
 
-.strikethrough {
+/* .strikethrough {
+    text-decoration: line-through;
+    
+} */
+
+.resume-link {
+    margin-top: 15px;
+}
+
+.link-wrapper .link a {
+    color: white;
+    font-size: 17px;
+    margin-left: 0;
+    text-decoration: none;
+}
+
+.link-wrapper .link a:hover {
+
     text-decoration: line-through;
 }
 
 .project {
     position: absolute;
-    right: calc(var(--pad)* 13);
+    right: calc(var(--pad)* 12);
     bottom: calc(var(--pad)* 9);
     white-space: nowrap;
 }
@@ -305,7 +354,7 @@ body {
 
 .project_list a {
     text-decoration: none;
-    font-size: 13.5px;
+    font-size: 16px;
     color: inherit;
     /* Inherit the text color from its parent */
     transition: transform 0.3s ease, text-decoration 0.3s ease;
@@ -322,8 +371,8 @@ body {
 
 .contact {
     position: absolute;
-    right: calc(var(--pad)* 15);
-    bottom: calc(var(--pad) * 9);
+    right: calc(var(--pad)* 10);
+    bottom: calc(var(--pad) * 8);
     white-space: nowrap;
 }
 
@@ -337,7 +386,7 @@ body {
 .contact_info a {
     color: white;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 /* Hide title and label when transitioning */
@@ -349,4 +398,120 @@ body {
 /* Show project content when loaded */
 .page[data-page="project-details"] {
     display: block;
+}
+
+#portfolioDetailsSection {
+    display: none;
+    /* Hide the section initially */
+}
+
+.portfolio-details {
+    position: fixed;
+    z-index: 10;
+    left: calc(var(--pad)* 3.5);
+    top: calc(var(--pad)* 2);
+    mix-blend-mode: difference;
+}
+
+.project_title {
+    color: #ad8e92;
+    font-size: 30px;
+    font-weight: 300px;
+    font-family: "Orbitron", sans-serif;
+    border-bottom: 2px solid white;
+
+
+}
+
+.project_data {
+    width: 100%;
+    padding-right: 0;
+}
+
+.project_intro {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+table {
+    display: table;
+    width: 80%;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 5px;
+    border-color: gray;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+table td {
+    vertical-align: top;
+    padding: 0 var(--left-right-internal-margin) var(--top-internal-margin) 0;
+    display: table-cell;
+}
+
+h6 {
+    text-transform: uppercase;
+    font-variation-settings: "wght" 800, "wdth" 125;
+    font-size: 1.25rem;
+    font-family: "Orbitron", sans-serif;
+
+}
+
+/* Scrollable section styling */
+.scrollable {
+    height: 80vh;
+    /* Height to allow scrolling within */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    padding: 20px;
+    scrollbar-width: thin;
+    /* Firefox scrollbar style */
+    scrollbar-color: #888 transparent;
+    /* Customize scrollbar colors */
+}
+
+/* Webkit-based browsers (Chrome, Safari) */
+.scrollable::-webkit-scrollbar {
+    width: 10px;
+    /* Scrollbar width */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: #555;
+    /* Scrollbar thumb color */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: transparent;
+    /* Transparent scrollbar track */
+}
+
+/* Scrollbar Hover Effect */
+.scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: #333;
+    /* Darker color on hover */
+}
+
+/* Smooth scroll behavior */
+.scrollable {
+    scroll-behavior: smooth;
 }

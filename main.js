@@ -68,3 +68,55 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.getElementById('portfolioLink').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent default link behavior
+    
+    // Select the #SiteHeader element
+    const borderDiv = document.getElementById('SiteHeader');
+    
+    // Select all child elements inside the #SiteHeader
+    const children = Array.from(borderDiv.children);
+    
+    // Loop through all child elements of #SiteHeader
+    children.forEach(function (element) {
+        // Check if the element is NOT the theme toggle, and remove it
+        if (!element.classList.contains('theme-toggle')) {
+            borderDiv.removeChild(element);
+        }
+    });
+
+    // Select and remove the #siteHeader_nav element
+    const siteHeaderNav = document.getElementById('siteHeader_nav');
+    if (siteHeaderNav) {
+        siteHeaderNav.remove();
+    }
+
+    // Remove the project navigation section
+    const projectNav = document.getElementById('projectNav');
+    if (projectNav) {
+        projectNav.remove();
+    }
+
+    // Show the new project details section
+    const portfolioDetailsSection = document.getElementById('portfolioDetailsSection');
+    if (portfolioDetailsSection) {
+        portfolioDetailsSection.style.display = 'block'; // Show the portfolio details section
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Apply GSAP animation for the scrollable project section
+    gsap.from(".scrollable", {
+        scrollTrigger: {
+            trigger: ".scrollable",
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: true,
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+    });
+});

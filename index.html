@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niusha.</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
@@ -34,23 +42,24 @@
         </div>
 
         <div class="theme-toggle">
-            <span class="theme-text dark" id="theme-toggle-dark">- DARK</span>
-            <span class="theme-text light" id="theme-toggle-light">- LIGHT</span>
+            <span class="theme-text dark" id="theme-toggle-dark">. DARK</span>
+            <span class="theme-text light" id="theme-toggle-light">. LIGHT</span>
         </div>
 
         <!-- Site Header Section -->
-        <div class="siteheader" id="SiteHeader">
+        <header class="siteheader" id="SiteHeader">
             <h1 class="siteHeader_title">Niusha Shahrivar</h1>
             <p class="siteHeader_label">Student &amp; Developer</p>
-            <nav class="siteHeader_navigation">
-                <ul>
-                    <li><a href="#about" id="aboutLink">- About</a></li>
-                    <li><a href="#projects" id="projectsLink">- Projects</a></li>
-                    <li><a href="#contact" id="contactLink">- Contact</a></li>
-                </ul>
-            </nav>
-        </div>
 
+        </header>
+
+        <nav class="siteHeader_navigation" id="siteHeader_nav">
+            <ul>
+                <li><a href="/about" id="aboutLink">01. About</a></li>
+                <li><a href="/work" id="projectsLink">02. Projects</a></li>
+                <li><a href="#contact" id="contactLink">03. Contact</a></li>
+            </ul>
+        </nav>
 
         <!-- Content Sections -->
         <main class="content" id="Content" data-scroll="area">
@@ -64,41 +73,116 @@
                 <section class="page" data-page="about">
                     <div class="page_content about">
                         <p class="home_aboutme">
-                            <span>Computer science student.
-                                Passionate about frontend development.</span><br>
+                            <span>Hi. My name is Niusha.<br>I am pursuing my degree in Computer science.
+                                <br>I am passionate about back and frontend development. </span><br>
+                            <span> Eager to learn new technology.</span><br>
                             <span>A minimalist at heart. I find beauty in simplicity.<br>
                             </span>
                             <span class="strikethrough">When not coding.</span> I enjoy playing instrument.
                         </p>
-
+                        <div class="resume-link" style="opacity: 1; transform: none;">
+                            <div class="link-wrapper">
+                                <div class="link"><a href="cvNiusha.pdf" target="_blank" rel="noreferrer">
+                                        Resume
+                                        <!-- -->↓
+                                    </a></div>
+                                <div class="link-underline" style="transform: translateX(-101%) translateZ(0px);"></div>
+                            </div>
+                        </div>
 
                     </div>
                 </section>
 
-                <section class="page" data-page="project">
+                <section class="page" data-page="project" id="projectNav">
                     <div class="page_content project">
                         <div class="project_list">
                             <ul>
-                                <li><a href="#" data-project="portfolio">- Portfolio Website</a></li>
-                                <li><a href="#" data-project="discord-bot">- Discord Music Bot</a></li>
-                                <li><a href="#" data-project="ecommerce">- E-commerce Website</a></li>
-                                <li><a href="#" data-project="quiz-app">- Quiz Application</a></li>
+                                <li><a href="/work/portfolio" id="portfolioLink" data-project="portfolio">Portfolio
+                                        Website</a></li>
+                                <li><a href="#" data-project="discord-bot">Discord Music Bot</a></li>
+                                <li><a href="#" data-project="ecommerce">E-commerce Website</a></li>
+                                <li><a href="#" data-project="quiz-app">Quiz Application</a></li>
                             </ul>
-
                         </div>
                     </div>
             </div>
             </section>
 
+            <!-- New Section for Project Details -->
+            <section class="page" data-page="portfolio-details" id="portfolioDetailsSection">
+                <div class="page_content portfolio-details scrollable">
+                    <div class="header_project">
+                        <div class="project_title">
+                            <h2>Portfolio Website</h2>
+                        </div>
+                    </div>
+
+                    <div class="project_intro">
+                        <div class="project_data">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h6>Category</h6>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Web Development</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>Year</h6>
+                                        </td>
+                                        <td>
+                                            <p>2024</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>Role</h6>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Laurine Simon</li>
+                                                <li>Laura Van Maël</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>Client</h6>
+                                        </td>
+                                        <td>
+                                            <p>ACT Responsable</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <!-- Add any project-specific images, links or extra details -->
+                        <div class="project_gallery">
+                            <img src="path-to-project-screenshot.jpg" alt="Portfolio Website Screenshot" />
+                        </div>
+
+                        <div class="project_link">
+                            <a href="https://github.com/itzniusha/portfolio" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             <section class="page" data-page="contact">
                 <div class="page_content contact">
                     <div class="contact_info">
-                        <a href="instagram.com/niushashahrivar">- Instagram</a>
-                        <a href="instagram.com/niushashahrivar">- Twitter</a>
-                        <a href="instagram.com/niushashahrivar">- Linkedin</a>
-                        <a href="instagram.com/niushashahrivar">- GitHub</a>
-
-
+                        <a href="instagram.com/niushashahrivar">Instagram.com/niushashahrivar</a>
+                        <a href="instagram.com/niushashahrivar">Twitter.com/niushashahrivar</a>
+                        <a href="instagram.com/niushashahrivar">Linkedin.com/niushashahrivar</a>
+                        <a href="instagram.com/niushashahrivar">GitHub/itzniusha</a>
                     </div>
                 </div>
             </section>
@@ -106,11 +190,11 @@
 
         </main>
 
-        <script src="main.js"></script>
-        <script src="shaderSetup.js"></script>
 
     </div>
 </body>
 
+<script src="main.js"></script>
+<script src="shaderSetup.js"></script>
 
 </html>
